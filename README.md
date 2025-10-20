@@ -984,7 +984,9 @@ If you use WiggleGPT in your research, please cite:
   url={https://github.com/edeneldith/WiggleGPT}
 }
 
+
 and the wikipedia pages and karpathy/nanoGPT!
+
 ---
 
 **Last Updated**: 2025
