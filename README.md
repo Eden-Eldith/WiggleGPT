@@ -28,7 +28,7 @@ All original modifications and bio-inspired components © 2025 Phillip C. O’Br
 3. **Sparse Event Processing**
    - Threshold-based activation (spike-like behavior)
    - Only processes inputs exceeding activation threshold
-   - Achieves 50-60% sparsity during training
+   - Achieves 8-13% sparsity during training
    - Energy-efficient computation inspired by biological event-based processing
 
 ### Architecture Highlights
