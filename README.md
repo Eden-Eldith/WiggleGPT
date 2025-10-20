@@ -909,7 +909,7 @@ Training slower than expected
 - [Neuron - Wikipedia](https://en.wikipedia.org/wiki/Neuron)
 
 **Transformers & Language Models:**
-- Vaswani, A., et al. (2017). "Attention is all you need." *NeurIPS*.
+- Vaswani, A., et al. (2017). ["Attention is all you need."](https://arxiv.org/abs/1706.03762)
 - Radford, A., et al. (2019). ["Language models are unsupervised multitask learners."](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
 
 ### Code Attribution
@@ -977,11 +977,11 @@ This is an **experimental research project**. The bio-inspired components are:
 If you use WiggleGPT in your research, please cite:
 
 @misc{obrien2025wigglegpt,
-  title={WiggleGPT: A Bio-Inspired Language Model with Neuromorphic Computing Principles},
-  author={O'Brien, Phillip C.},
-  year={2025},
-  howpublished={GitHub repository},
-  url={https://github.com/edeneldith/WiggleGPT}
+  author       = {Phillip C. O'Brien},
+  title        = {WiggleGPT: A Bio-Inspired Language Model with Neuromorphic Computing Principles},
+  year         = {2025},
+  howpublished = {\url{https://github.com/edeneldith/WiggleGPT}},
+  note         = {GitHub repository}
 }
 
 
