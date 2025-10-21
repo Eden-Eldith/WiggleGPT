@@ -1,3 +1,5 @@
+## Update: I am now experimenting with removing the Dendritic Compartments which turns it from a 89m model with n_layer = 4, n_head = 6, n_embd = 384 to a 49m model with the same config
+
 # WiggleGPT 🧠⚡
 
 **Bio-Inspired Language Model with Neuromorphic Computing Principles**
