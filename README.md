@@ -1,4 +1,6 @@
-## Update: I am now experimenting with removing the Dendritic Compartments which turns it from a 89m model with n_layer = 4, n_head = 6, n_embd = 384 to a 49m model with the same config
+## Update: 21/10/2025
+I am now experimenting with removing the Dendritic Compartments which turns it from a 89m model with n_layer = 4, n_head = 6, n_embd = 384 to a 49m model with the same config
+> Full post-mortem: [The Dendritic Routing Mistake](./Research%20docs/DENDRITIC_REMOVAL_STORY.md)
 
 # WiggleGPT 🧠⚡
 
