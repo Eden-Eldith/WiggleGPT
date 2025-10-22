@@ -1,3 +1,10 @@
+## Update: 22/10/2025
+> the model trained over night and is showing promising results when compared to the dendritic routing version (step 108000: train loss 3.7259, val loss 3.7661, sparsity 12.08%)
+
+Should be done by 11pm tonight +/- 2 hours time is 08:47am currently.
+
+---
+
 ## Update: 21/10/2025
 I am now experimenting with removing the Dendritic Compartments which turns it from a 89m model with n_layer = 4, n_head = 6, n_embd = 384 to a 49m model with the same config
 > Full post-mortem: [The Dendritic Routing Mistake](./Research%20docs/DENDRITIC_REMOVAL_STORY.md)
