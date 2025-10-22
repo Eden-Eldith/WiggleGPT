@@ -124,3 +124,54 @@ When AI suggests "helpful" features that cause 10x explosions in any metric (par
 The wiggle was always the answer. The rest was noise.
 
 
+# Dendritic Routing Removal process
+
+## Summary
+Cleanly removed dendritic compartment routing while preserving:
+- ✅ **Oscillating activations** - Single neurons can learn XOR
+- ✅ **Sparse event gating** - Energy-efficient spike-like processing
+
+## Changes Made
+
+### 1. `model_bio.py`
+- **Removed**: `DendriticCompartmentLayer` class entirely
+- **Modified**: `BioMLP` class now uses:
+  - Simple linear layer (`c_fc`) with oscillating activation
+  - Sparse event layer (unchanged)
+  - Output projection (unchanged)
+- **Updated**: Config parameter `bio_compartments` marked as DEPRECATED
+- **Updated**: File docstring to reflect current architecture
+
+### 2. `sample_bio.py`
+- **Updated**: Model info printout to show oscillating + sparse features
+- **Removed**: Compartment count from display
+
+### 3. `config_gpt2_bio_3070.py`
+- **Removed**: `bio_compartments` parameter (no longer needed)
+- **Kept**: `bio_threshold` for sparse gating
+- **Updated**: Comment to clarify "oscillating + sparse"
+
+## Architecture Comparison
+
+### Before (with dendritic routing):
+```
+Input → Dendritic Compartments (with lateral coupling) → Sparse Gating → Output
+          ↓ (oscillating soma)                          ↓ (oscillating)
+```
+
+### After (simplified):
+```
+Input → Linear + Oscillating Activation → Sparse Gating → Output
+                                          ↓ (oscillating)
+```
+
+## Backward Compatibility
+- Config parameter `bio_compartments` is kept in `GPTConfig` for loading old checkpoints
+- It's marked as DEPRECATED and ignored by the new `BioMLP`
+- Old checkpoints with dendritic routing won't load correctly into this simplified model
+
+## Key Benefits
+- **Simpler**: Fewer parameters, easier to understand
+- **Faster**: No compartment splitting/routing overhead
+- **Still bio-inspired**: Retains oscillating neurons + sparsity
+- **Clean code**: Removed ~100 lines of dendritic routing complexity
