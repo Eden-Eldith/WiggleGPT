@@ -1,3 +1,10 @@
+## Update 23/10/2025 00:44 am
+it is at iter 185800, Loss still hovering around 3.4 - 3.6~  
+
+> I will continue to let it train overnight, tomorrow I will update the repo with my results and new code. 
+
+---
+
 ## Update 22/10/2025 14:18 PM
 > step 136000: train loss 3.5760, val loss 3.5547, sparsity 13.30% number of parameters: 45.31M
 
