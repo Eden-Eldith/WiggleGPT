@@ -1,7 +1,16 @@
+## Update 22/10/2025 14:18 PM
+> step 136000: train loss 3.5760, val loss 3.5547, sparsity 13.30% number of parameters: 45.31M
+
+Well then, Its not even all the way through the 200k iter and its already starting to match the 89m parameter model, I think its safe to say dendritic routing was causing major issues for stability in training.  
+
+---
+
 ## Update: 22/10/2025
-the model trained over night and is showing promising results when compared to the dendritic routing version (step 108000: train loss 3.7259, val loss 3.7661, sparsity 12.08%)
+The model trained over night and is showing promising results when compared to the dendritic routing version (step 108000: train loss 3.7259, val loss 3.7661, sparsity 12.08%)
 
 > Should be done by 11pm tonight +/- 2 hours time is 08:47am currently.
+
+
 
 ---
 
