@@ -1,7 +1,7 @@
 ## Update: 22/10/2025
-> the model trained over night and is showing promising results when compared to the dendritic routing version (step 108000: train loss 3.7259, val loss 3.7661, sparsity 12.08%)
+the model trained over night and is showing promising results when compared to the dendritic routing version (step 108000: train loss 3.7259, val loss 3.7661, sparsity 12.08%)
 
-Should be done by 11pm tonight +/- 2 hours time is 08:47am currently.
+> Should be done by 11pm tonight +/- 2 hours time is 08:47am currently.
 
 ---
 
