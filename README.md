@@ -204,7 +204,7 @@ The wiggle was always the answer. The dendritic routing was noise.
 - The v2 results are stronger for having removed the complexity
 - Isolating variables leads to clearer understanding
 
-For full details, see: [The Dendritic Routing Mistake: A Cautionary Tale](./DENDRITIC_REMOVAL_STORY.md)
+For full details, see: [The Dendritic Routing Mistake](./Research%20docs/DENDRITIC_REMOVAL_STORY.md)
 
 ---
 
