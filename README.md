@@ -1,3 +1,5 @@
+## UPDATE: 23/10/2025 21:05PM
+after trying to get light sparsity working, i have concluded that i cannot iterate fast enough to warrant trying to get it working any more, so i have also removed sparsity for a later date, for now im running the oscillating activation function but at 124m parameters, i will let it train for the full 600k iter over many days as I only have a single 3070, and no money to rent compute.  
 ## UPDATE: 23/10/2025
 I have discovered windows does not like triton so no compile=true for me, running RoPE and rmsnorm on this bigger model, however, when i scaled up the n_heads, n_layers and n_embd it wasnt 124m parameters, but something like 300m~ parameters, I found how I was doing sparsity was responsible for this ,second, parameter explosion.
 
@@ -23,7 +25,32 @@ Difference:
 > NEW: Gate learns per-feature importance (scalar per feature), no transform
 
 Does it still work for sparsity? Yes - it still learns which neurons to activate/suppress, just in a simpler way. Each neuron gets its own learned threshold instead of learning relationships between neurons.
+## Update 23/10/2025 00:44 am
+it is at iter 185800, Loss still hovering around 3.4 - 3.6~  
 
+> I will continue to let it train overnight, tomorrow I will update the repo with my results and new code. 
+
+---
+
+## Update 22/10/2025 14:18 PM
+> step 136000: train loss 3.5760, val loss 3.5547, sparsity 13.30% number of parameters: 45.31M
+
+Well then, Its not even all the way through the 200k iter and its already starting to match the 89m parameter model, I think its safe to say dendritic routing was causing major issues for stability in training.  
+
+---
+
+## Update: 22/10/2025
+The model trained over night and is showing promising results when compared to the dendritic routing version (step 108000: train loss 3.7259, val loss 3.7661, sparsity 12.08%)
+
+> Should be done by 11pm tonight +/- 2 hours time is 08:47am currently.
+
+
+
+---
+
+## Update: 21/10/2025
+I am now experimenting with removing the Dendritic Compartments which turns it from a 89m model with n_layer = 4, n_head = 6, n_embd = 384 to a 49m model with the same config
+> Full post-mortem: [The Dendritic Routing Mistake](./Research%20docs/DENDRITIC_REMOVAL_STORY.md)
 # WiggleGPT v2 🧠⚡
 
 **Bio-Inspired Language Model with Oscillating Neurons and Sparse Processing**
