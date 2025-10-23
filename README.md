@@ -1,3 +1,29 @@
+## UPDATE: 23/10/2025
+I have discovered windows does not like triton so no compile=true for me, running RoPE and rmsnorm on this bigger model, however, when i scaled up the n_heads, n_layers and n_embd it wasnt 124m parameters, but something like 300m~ parameters, I found how I was doing sparsity was responsible for this ,second, parameter explosion.
+
+How Lightweight Sparsity Works:
+OLD (bloated):
+```python
+voltage = self.gate(x)  # Full linear: learns feature INTERACTIONS for gating
+spike_strength = sigmoid((voltage - threshold) * 5)
+gated_x = x * spike_strength
+out = self.activation(self.transform(gated_x))  # Another full linear
+```
+NEW (lightweight):
+```python
+voltage = x * self.gate_weight + self.gate_bias  # Per-feature scaling only
+spike_strength = sigmoid((voltage - threshold) * 5)
+gated_x = x * spike_strength  
+out = self.activation(gated_x)  # No transform layer
+```
+Difference:
+
+> OLD: Gate learns complex feature interactions (matrix), then transforms the result
+
+> NEW: Gate learns per-feature importance (scalar per feature), no transform
+
+Does it still work for sparsity? Yes - it still learns which neurons to activate/suppress, just in a simpler way. Each neuron gets its own learned threshold instead of learning relationships between neurons.
+
 # WiggleGPT v2 🧠⚡
 
 **Bio-Inspired Language Model with Oscillating Neurons and Sparse Processing**
