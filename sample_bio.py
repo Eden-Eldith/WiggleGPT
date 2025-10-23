@@ -48,9 +48,9 @@ if init_from == 'resume':
     # Print model info
     print(f"Loaded model from {out_dir}")
     if hasattr(gptconf, 'use_bio_mlp') and gptconf.use_bio_mlp:
-        print("?? Model uses BIO-INSPIRED NEURONS")
-        print(f"  Compartments: {gptconf.bio_compartments}")
-        print(f"  Threshold: {gptconf.bio_threshold}")
+        print("🧠 Model uses BIO-INSPIRED NEURONS")
+        print(f"  • Oscillating activations")
+        print(f"  • Sparse event gating (threshold: {gptconf.bio_threshold})")
     else:
         print("Standard nanoGPT model")
     

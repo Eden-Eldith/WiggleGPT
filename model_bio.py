@@ -5,9 +5,8 @@ Extended from nanoGPT to include biologically-inspired neuron architectures.
 
 New components:
 1. OscillatingActivation - sin(ω·x + φ)·tanh(x) enabling XOR in single neurons
-2. DendriticCompartmentLayer - multi-compartment processing with lateral coupling
-3. SparseEventLayer - spike-like thresholding for efficiency
-4. BioMLP - drop-in replacement for standard MLP combining all features
+2. SparseEventLayer - spike-like thresholding for efficiency
+3. BioMLP - drop-in replacement for standard MLP combining oscillating + sparse features
 
 Original nanoGPT architecture is preserved; bio features are optional via config.
 """
@@ -46,108 +45,6 @@ class OscillatingActivation(nn.Module):
     def forward(self, x):
         osc = torch.sin(self.omega * x + self.phi)
         return osc * torch.tanh(x) + self.baseline
-
-
-class DendriticCompartmentLayer(nn.Module):
-    """
-    Multi-compartment dendritic processing with:
-    1. Local nonlinear transformations in each compartment
-    2. Lateral dendritic interactions (learned coupling matrix)
-    3. Somatic integration with oscillating activation
-    
-    Handles 3D transformer tensors (batch, seq, features).
-    """
-    def __init__(
-        self,
-        in_features: int,
-        out_features: int,
-        num_compartments: int = 4,
-        use_oscillating: bool = True,
-        use_lateral: bool = True,
-        bias: bool = True
-    ):
-        super().__init__()
-        self.num_compartments = num_compartments
-        self.use_lateral = use_lateral
-        self.compartment_size = in_features // num_compartments
-        
-        # Pad input size if not evenly divisible
-        self.pad_size = 0
-        if in_features % num_compartments != 0:
-            self.compartment_size = (in_features // num_compartments) + 1
-            self.pad_size = (self.compartment_size * num_compartments) - in_features
-        
-        # Each compartment has local nonlinear processing
-        self.compartments = nn.ModuleList([
-            nn.Sequential(
-                nn.Linear(self.compartment_size, out_features, bias=bias),
-                nn.Tanh()
-            )
-            for _ in range(num_compartments)
-        ])
-        
-        # Lateral dendritic interactions (learned coupling matrix)
-        if use_lateral:
-            self.lateral = nn.Parameter(
-                torch.eye(num_compartments) * 0.5 + 
-                torch.randn(num_compartments, num_compartments) * 0.1
-            )
-        
-        # Somatic integration
-        integration_size = out_features * num_compartments
-        if use_lateral:
-            integration_size *= 2  # Include lateral influences
-        
-        self.soma = nn.Linear(integration_size, out_features, bias=bias)
-        
-        # Soma activation
-        if use_oscillating:
-            self.soma_activation = OscillatingActivation(out_features)
-        else:
-            self.soma_activation = nn.Tanh()
-    
-    def forward(self, x):
-        # Handle 3D tensors for transformer (batch, seq, features)
-        is_3d = len(x.shape) == 3
-        if is_3d:
-            batch_size, seq_len, features = x.shape
-            x = x.reshape(batch_size * seq_len, features)
-        
-        batch_size = x.shape[0]
-        
-        # Pad input if necessary
-        if self.pad_size > 0:
-            x = F.pad(x, (0, self.pad_size))
-        
-        # Split input into compartments
-        compartment_inputs = x.view(batch_size, self.num_compartments, self.compartment_size)
-        
-        # Local processing in each compartment
-        compartment_outs = []
-        for i, comp in enumerate(self.compartments):
-            compartment_outs.append(comp(compartment_inputs[:, i, :]))
-        
-        compartment_outs = torch.stack(compartment_outs, dim=1)  # [B, K, out_features]
-        
-        # Apply lateral interactions (dendritic coupling)
-        if self.use_lateral:
-            lateral_influence = torch.einsum('bkd,kl->bld', compartment_outs, self.lateral)
-            integrated = torch.cat([
-                compartment_outs.reshape(batch_size, -1),
-                lateral_influence.reshape(batch_size, -1)
-            ], dim=-1)
-        else:
-            integrated = compartment_outs.reshape(batch_size, -1)
-        
-        # Soma integrates all compartment outputs
-        soma_out = self.soma(integrated)
-        output = self.soma_activation(soma_out)
-        
-        # Reshape back to 3D if needed
-        if is_3d:
-            output = output.reshape(batch_size // seq_len, seq_len, -1)
-        
-        return output
 
 
 class SparseEventLayer(nn.Module):
@@ -214,25 +111,18 @@ class SparseEventLayer(nn.Module):
 
 class BioMLP(nn.Module):
     """
-    Bio-inspired MLP combining all research features:
-    - Dendritic compartments with lateral interactions
-    - Oscillating activations
-    - Sparse event-based gating
+    Bio-inspired MLP combining research features:
+    - Oscillating activations (single neurons can learn XOR)
+    - Sparse event-based gating (energy-efficient processing)
     
     Drop-in replacement for standard MLP in GPT architecture.
     """
     def __init__(self, config):
         super().__init__()
         
-        # Dendritic processing (with oscillating soma)
-        self.dendritic = DendriticCompartmentLayer(
-            config.n_embd,
-            4 * config.n_embd,
-            num_compartments=config.bio_compartments,
-            use_oscillating=True,
-            use_lateral=True,
-            bias=config.bias
-        )
+        # First layer: linear transformation with oscillating activation
+        self.c_fc = nn.Linear(config.n_embd, 4 * config.n_embd, bias=config.bias)
+        self.oscillating = OscillatingActivation(4 * config.n_embd, learnable=True)
         
         # Sparse event gating (with oscillating activation)
         self.sparse_gate = SparseEventLayer(
@@ -248,8 +138,9 @@ class BioMLP(nn.Module):
         self.dropout = nn.Dropout(config.dropout)
     
     def forward(self, x):
-        # Dendritic processing with oscillations
-        x = self.dendritic(x)
+        # Linear transformation with oscillating activation
+        x = self.c_fc(x)
+        x = self.oscillating(x)
         
         # Sparse event gating
         x = self.sparse_gate(x) 
@@ -385,7 +276,7 @@ class GPTConfig:
     bias: bool = True # True: bias in Linears and LayerNorms, like GPT-2. False: a bit better and faster
     # Bio-inspired neuron parameters
     use_bio_mlp: bool = False  # Use bio-inspired MLP instead of standard
-    bio_compartments: int = 4  # Number of dendritic compartments
+    bio_compartments: int = 4  # DEPRECATED: kept for backward compatibility, no longer used
     bio_threshold: float = 0.3  # Sparse event threshold
 
 

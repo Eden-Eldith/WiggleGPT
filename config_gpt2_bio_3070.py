@@ -24,9 +24,8 @@ n_embd = 384
 dropout = 0.0
 bias = False
 
-# Your bio neurons
+# Your bio neurons (oscillating + sparse)
 use_bio_mlp = True
-bio_compartments = 2
 bio_threshold = 0.25
 
 # Training
@@ -43,5 +42,6 @@ device = 'cuda'
 dtype = 'float16'  # 3070 doesn't have bfloat16
 compile = False
 
-# Expected: ~2-3 days on 3070
+# Expected: ~1.5 days on 3070 at 45.31m parameters
+# Expected: ~2-3 days on 3070 at 89m parameters if your doing dendritic routing (V1-OLD)
 
