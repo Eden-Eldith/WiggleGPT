@@ -1,0 +1,19 @@
+# Optional dependencies for optimized training
+# Install with: pip install -r requirements-optimizers.txt
+
+# Core PyTorch (required)
+torch>=2.0.0  # Required for torch.compile
+
+# Optional optimizers
+lion-pytorch>=0.1.0  # Lion optimizer (faster convergence)
+bitsandbytes>=0.41.0  # 8-bit AdamW (memory efficient)
+transformers>=4.30.0  # Adafactor optimizer
+
+# Optional: Better logging
+wandb>=0.15.0  # Weights & Biases for experiment tracking
+
+# Note: Install only what you need:
+# - For Lion: pip install lion-pytorch
+# - For 8-bit AdamW: pip install bitsandbytes
+# - For Adafactor: pip install transformers
+# - For all: pip install -r requirements-optimizers.txt
