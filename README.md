@@ -611,7 +611,7 @@ This is an **experimental research project**. WiggleGPT v2:
 - Included dendritic compartments with lateral coupling
 - 89M parameters, 3.56 val loss  
 - Unscalable architecture (1.2B params at GPT-2 scale)
-- See [DENDRITIC_REMOVAL_STORY.md](./DENDRITIC_REMOVAL_STORY.md) for full details
+- See [The Dendritic Routing Mistake](./Research%20docs/DENDRITIC_REMOVAL_STORY.md) for full details
 
 ---
 
