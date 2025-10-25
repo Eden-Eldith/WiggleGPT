@@ -1,47 +1,81 @@
-# GPT-2 with Bio Neurons - Single 3070 (8GB)
-# You know the drill, you've done this before
+"""
+WiggleGPT 124M - PURE OSCILLATING NEURONS
+=========================================
 
-out_dir = 'out-gpt2-bio'
-eval_interval = 2000
+CLEAN TEST: Just oscillating activations vs GELU
+No sparsity gating, no complexity, just the core hypothesis.
+
+This is the scientific comparison:
+- GPT-2: Linear → GELU → Linear
+- WiggleGPT: Linear → sin(ω·x + φ)·tanh(x) → Linear
+
+Same architecture, same parameters (~124M), one variable changed.
+"""
+
+# I/O
+out_dir = 'out-wigglegpt-pure-124m'
+eval_interval = 1000
 log_interval = 10
-eval_iters = 50
+eval_iters = 100
 
-wandb_log = False  # Set True if you want
-wandb_project = 'owt'
-wandb_run_name = 'gpt2-bio-3070'
+# Wandb
+wandb_log = False
+wandb_project = 'wigglegpt-pure'
+wandb_run_name = 'wigglegpt-pure-124m'
 
+# Data
 dataset = 'openwebtext'
 
-# Tuned for 8GB VRAM
+# Batch configuration
 batch_size = 2
 block_size = 1024
 gradient_accumulation_steps = 16  # Effective batch: 128K tokens
 
-# Standard GPT-2 124M architecture
-n_layer = 4
-n_head = 6
-n_embd = 384
+# Model architecture - EXACT GPT-2 124M
+n_layer = 12
+n_head = 12
+n_embd = 768
 dropout = 0.0
 bias = False
 
-# Your bio neurons (oscillating + sparse)
-use_bio_mlp = True
-bio_threshold = 0.25
+# Bio-inspired neurons - PURE VERSION
+use_bio_mlp = True  # This ONLY changes activation function, nothing else
 
-# Training
-max_iters = 200000
-lr_decay_iters = 200000
+# Optimizations
+use_rmsnorm = True
+use_rope = True
+gradient_checkpointing = False
+
+# Optimizer
+optimizer_type = 'adamw'
+
+# Learning rate schedule
+lr_schedule = 'cosine'
+stable_iters = 0
+
+# torch.compile
+compile = False
+compile_mode = 'default'
+
+# Training hyperparameters
+max_iters = 600000
+lr_decay_iters = 600000
 learning_rate = 6e-4
 weight_decay = 1e-1
 beta1 = 0.9
 beta2 = 0.95
 grad_clip = 1.0
 
+# Warmup
+warmup_iters = 2000
+min_lr = 6e-5
+
 # System
 device = 'cuda'
-dtype = 'float16'  # 3070 doesn't have bfloat16
-compile = False
+dtype = 'float16'
 
-# Expected: ~1.5 days on 3070 at 45.31m parameters
-# Expected: ~2-3 days on 3070 at 89m parameters if your doing dendritic routing (V1-OLD)
-
+# EXPECTED RESULTS
+# Parameters: ~124M (exactly GPT-2)
+# Training time: ~3 days on 3070
+# Target: Beat GPT-2's 3.12 val loss with oscillating neurons alone
+# No sparsity metric - we removed that complexity
