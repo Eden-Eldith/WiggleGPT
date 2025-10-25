@@ -1,7 +1,12 @@
+## UPDATE: 25/10/2025 15:51PM
+Training of the 124m parameter model without sparsity, but still with oscillating activation features, is at step 75000: train loss 3.5357, val loss 3.4643 out of 600k only 525,000 more to go! 😭🤣
+
+Also been looking at prices of second-hand 3090's, pretty tempted to get a founders edition one just so I dont have to faff about with aftermarket coolers quirks. £500 is alot of money for me 🫤
+
 ## UPDATE: 23/10/2025 21:05PM
-after trying to get light sparsity working, i have concluded that i cannot iterate fast enough to warrant trying to get it working any more, so i have also removed sparsity for a later date, for now im running the oscillating activation function but at 124m parameters, i will let it train for the full 600k iter over many days as I only have a single 3070, and no money to rent compute.  
+after trying to get light sparsity working, I have concluded that I cannot iterate fast enough to warrant trying to get it working any more, so I have also removed sparsity for a later date, for now im running the oscillating activation function but at 124m parameters, I will let it train for the full 600k iter over many days as I only have a single 3070, and no money to rent compute.  
 ## UPDATE: 23/10/2025
-I have discovered windows does not like triton so no compile=true for me, running RoPE and rmsnorm on this bigger model, however, when i scaled up the n_heads, n_layers and n_embd it wasnt 124m parameters, but something like 300m~ parameters, I found how I was doing sparsity was responsible for this ,second, parameter explosion.
+I have discovered windows does not like triton so no compile=true for me, running RoPE and rmsnorm on this bigger model, however, when I scaled up the n_heads, n_layers and n_embd it wasnt 124m parameters, but something like 300m~ parameters, I found how I was doing sparsity was responsible for this ,second, parameter explosion.
 
 How Lightweight Sparsity Works:
 OLD (bloated):
