@@ -1,3 +1,8 @@
+## UPDATE: 26/10/2025 19:20PM
+I bit the bullet and bought a 3090 for £550.44 (including shipping)  😭 training is still going step 124000: train loss 3.5069, val loss 3.4756.
+
+GPU should arrive on the 30th. 
+
 ## UPDATE: 25/10/2025 15:51PM
 Training of the 124m parameter model without sparsity, but still with oscillating activation features, is at step 75000: train loss 3.5357, val loss 3.4643 out of 600k only 525,000 more to go! 😭🤣
 
