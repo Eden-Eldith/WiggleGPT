@@ -1,3 +1,8 @@
+## UPDATE: 28/10/2025 01:36PM
+The seller cancelled the order, now my GPU money is floating in ebays refund system for 3-5 days.....
+
+step 176000: train loss 3.4597, val loss 3.4634
+Will continue training on the 3070 I guess.
 ## UPDATE: 26/10/2025 19:20PM
 I bit the bullet and bought a 3090 for £550.44 (including shipping)  😭 training is still going step 124000: train loss 3.5069, val loss 3.4756.
 
