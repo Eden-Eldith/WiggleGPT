@@ -1,4 +1,4 @@
-## UPDATE: 07/11/2025 05:26PM
+## UPDATE: 07/11/2025 05:26AM
 Training was resumed 2 days ago, have a new gpu now, with 16gb of vram (5060ti 16gb) config was changed to accomodate larger vram (batch_size = 4 gradient_accumulation_steps = 8) had to install PyTorch with CUDA 12.8 as I would get this error 
 ```
 CUDA capability sm_120 is not compatible with current PyTorch
@@ -6,7 +6,7 @@ Current PyTorch supports sm_50 through sm_90
 Please install PyTorch with CUDA 12.8 or 13.0
 ```
 > step 354000: train loss 3.3162, val loss 3.3482
-## UPDATE: 28/10/2025 01:36PM
+## UPDATE: 28/10/2025 01:36AM
 The seller cancelled the order, now my GPU money is floating in ebays refund system for 3-5 days.....
 
 step 176000: train loss 3.4597, val loss 3.4634
@@ -48,7 +48,7 @@ Difference:
 > NEW: Gate learns per-feature importance (scalar per feature), no transform
 
 Does it still work for sparsity? Yes - it still learns which neurons to activate/suppress, just in a simpler way. Each neuron gets its own learned threshold instead of learning relationships between neurons.
-## Update 23/10/2025 00:44 am
+## Update 23/10/2025 00:44 AM
 it is at iter 185800, Loss still hovering around 3.4 - 3.6~  
 
 > I will continue to let it train overnight, tomorrow I will update the repo with my results and new code. 
