@@ -1,3 +1,11 @@
+## UPDATE: 07/11/2025 05:26PM
+Training was resumed 2 days ago, have a new gpu now, with 16gb of vram (5060ti 16gb) config was changed to accomodate larger vram (batch_size = 4 gradient_accumulation_steps = 8) had to install PyTorch with CUDA 12.8 as I would get this error 
+```
+CUDA capability sm_120 is not compatible with current PyTorch
+Current PyTorch supports sm_50 through sm_90
+Please install PyTorch with CUDA 12.8 or 13.0
+```
+> step 354000: train loss 3.3162, val loss 3.3482
 ## UPDATE: 28/10/2025 01:36PM
 The seller cancelled the order, now my GPU money is floating in ebays refund system for 3-5 days.....
 
