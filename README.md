@@ -1,3 +1,7 @@
+## UPDATE: 12/11/2025 02:58AM
+>step 600000: train loss 3.1749, val loss 3.1621
+
+Training finished! not too bad but not the  train loss 3.11, val loss 3.12 that gpt-2 124m got. will have to update this all another day with a finalized conclusions.
 ## UPDATE: 07/11/2025 05:26AM
 Training was resumed 2 days ago, have a new gpu now, with 16gb of vram (5060ti 16gb) config was changed to accomodate larger vram (batch_size = 4 gradient_accumulation_steps = 8) had to install PyTorch with CUDA 12.8 as I would get this error 
 ```
