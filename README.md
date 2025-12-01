@@ -283,11 +283,16 @@ WiggleGPT/
 ├── README.md                 # This file
 │
 ├── Analysis scripts/         # Checkpoint analysis & visualization
+│   ├── analyze_brainwaves.py         # Analyze brainwave/oscillation patterns
 │   ├── analyze_wiggle-pretrain.py    # Analyze ω, φ from pretrained model
 │   ├── analyze_wiggle-finetune.py    # Compare pretrain vs fine-tuned params
-│   ├── generate_pretrain_loss_chart.py
 │   ├── generate_finetune_loss_chart.py
-│   └── Readme-Analysis-loss-scripts.md
+│   ├── generate_pretrain_loss_chart.py
+│   ├── generate_social_media_visuals.py  # Social media optimized visuals
+│   ├── Readme-Analysis-loss-scripts.md
+│   ├── outputs-brainwave/            # Brainwave analysis outputs
+│   ├── outputs-finetune/             # Fine-tuning analysis outputs
+│   └── outputs-pretrain/             # Pretraining analysis outputs
 │
 ├── data/
 │   └── openwebtext/
@@ -322,10 +327,12 @@ The `Analysis scripts/` folder contains tools for analyzing trained checkpoints 
 
 | Script | Purpose | Output |
 |--------|---------|--------|
+| `analyze_brainwaves.py` | Analyze brainwave/oscillation patterns | `outputs-brainwave/` |
 | `analyze_wiggle-pretrain.py` | Analyze ω, φ distributions from pretrained checkpoint | `wiggle_analysis.png` |
 | `analyze_wiggle-finetune.py` | Compare pretrained vs fine-tuned parameters | `wiggle_finetune_analysis.png` |
 | `generate_pretrain_loss_chart.py` | Generate pretraining loss curves | `pretrain_loss_chart.png` |
 | `generate_finetune_loss_chart.py` | Generate fine-tuning loss curves | `finetune_loss_chart.png` |
+| `generate_social_media_visuals.py` | Generate social media optimized visuals | Various image formats |
 
 See [`Analysis scripts/Readme-Analysis-loss-scripts.md`](./Analysis%20scripts/Readme-Analysis-loss-scripts.md) for detailed usage instructions.
 
