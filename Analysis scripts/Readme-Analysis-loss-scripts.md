@@ -12,8 +12,10 @@ This folder contains analysis and visualization scripts for WiggleGPT checkpoint
 |--------|---------|
 | `analyze_wiggle-pretrain.py` | Analyze oscillation parameters (ω, φ) from a pretrained checkpoint |
 | `analyze_wiggle-finetune.py` | Compare oscillation parameters between pretrained and fine-tuned checkpoints |
+| `analyze_brainwaves.py` | Analyze brainwave/oscillation patterns in the model |
 | `generate_pretrain_loss_chart.py` | Generate loss curve visualization for pretraining |
 | `generate_finetune_loss_chart.py` | Generate loss curve visualization for fine-tuning |
+| `generate_social_media_visuals.py` | Generate visuals optimized for social media sharing |
 
 ---
 
@@ -160,8 +162,22 @@ checkpoint line contains the step number, train loss, and val loss.
 |--------|----------|------------------------|-------------|
 | `analyze_wiggle-pretrain.py` | Checkpoint folder | `ckpt.pt` (same dir) | `wiggle_analysis.png` |
 | `analyze_wiggle-finetune.py` | Fine-tune folder | `ckpt.pt` + `../out-wigglegpt-pure-124m/ckpt.pt` | `wiggle_finetune_analysis.png` |
+| `analyze_brainwaves.py` | Checkpoint folder | `ckpt.pt` (same dir) | Brainwave analysis outputs |
 | `generate_pretrain_loss_chart.py` | Anywhere | None (uses hardcoded data) | `pretrain_loss_chart.png` |
 | `generate_finetune_loss_chart.py` | Anywhere | None (uses hardcoded data) | `finetune_loss_chart.png` |
+| `generate_social_media_visuals.py` | Anywhere | None (uses hardcoded data) | Social media optimized images |
+
+---
+
+## 📂 Output Folders
+
+The following folders store generated outputs:
+
+| Folder | Contents |
+|--------|----------|
+| `outputs-brainwave/` | Output files from brainwave analysis |
+| `outputs-finetune/` | Output files from fine-tuning analysis |
+| `outputs-pretrain/` | Output files from pretraining analysis |
 
 ---
 
