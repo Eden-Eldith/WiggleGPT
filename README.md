@@ -496,9 +496,17 @@ If you use WiggleGPT in your research, please cite:
 
 ---
 
-## 📜 License
+## License
 
-MIT License - See LICENSE file for details.
+**GNU GPLv3** (as of 2nd December 2025)
+
+This project is a derivative of [nanoGPT](https://github.com/karpathy/nanoGPT) by Andrej Karpathy, originally released under the MIT License.
+
+All modifications, including the oscillating activation function (BioMLP), are Copyright (C) 2025 Eden_Eldith (P.C. O'Brien) c: and licensed under GNU GPLv3.
+
+This means any derivative works based on WiggleGPT must also be open source under GPLv3.
+
+See the [LICENSE](LICENSE) file for full terms.
 
 ---
 
