@@ -14,7 +14,7 @@ WiggleGPT is an experimental language model that challenges a 56-year-old assump
 By replacing standard ReLU/GELU activations with learnable oscillating activation functions (`sin(ω·x + φ)·tanh(x)`), WiggleGPT demonstrates that biologically-inspired neurons can achieve competitive performance with standard transformers—matching GPT-2 124M within 1.3% while using identical parameter counts.
 
 > **📄 Read the full paper:** [WiggleGPT Paper](https://garden-backend-three.vercel.app/finalized-work/wiggle-gpt/wiggle-gpt-paper/)
-
+> **Model Weights** | [HuggingFace](https://huggingface.co/edeneldith/WiggleGPT)
 ---
 
 This project extends nanoGPT (MIT License, © Andrej Karpathy).  
