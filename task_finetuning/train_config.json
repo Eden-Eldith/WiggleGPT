@@ -1,0 +1,37 @@
+{
+  "starting_checkpoint": "../checkpoints/pretrained/ckpt.pt",
+  "epochs": 3,
+  "effective_batch_size": 32,
+  "learning_rate": 6.25e-05,
+  "warmup_fraction": 0.002,
+  "schedule": "linear warmup then linear decay, matching GPT-1 task adaptation",
+  "lm_coefficient": 0.5,
+  "classifier_dropout": 0.1,
+  "weight_decay": 0.01,
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "epsilon": 1e-08,
+  "grad_clip": 1.0,
+  "max_length": 512,
+  "seed": 42,
+  "cpu_threads": 2,
+  "desktop_reserve_gib": 2.5,
+  "max_process_gib": 9.0,
+  "checkpoint_interval": 500,
+  "log_interval": 25,
+  "max_consecutive_nonfinite": 8,
+  "tasks": {
+    "sst2": {
+      "microbatch_size": 16,
+      "gradient_checkpointing": false,
+      "eval_interval": 1000
+    },
+    "race_middle": {
+      "microbatch_size": 2,
+      "gradient_checkpointing": true,
+      "eval_interval": 400
+    }
+  }
+}

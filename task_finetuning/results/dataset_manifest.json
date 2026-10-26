@@ -1,0 +1,137 @@
+{
+  "prepared_at_utc": "2026-10-26T05:49:36.901780+00:00",
+  "tasks": {
+    "sst2": {
+      "dataset": "stanfordnlp/sst2",
+      "config": "default",
+      "metadata_url": "https://datasets-server.huggingface.co/parquet?dataset=stanfordnlp%2Fsst2",
+      "splits": {
+        "train": {
+          "path": "original_workspace/output/gpt1_style/task_finetuning/data/sst2_train.jsonl",
+          "rows": 67349,
+          "sha256": "75fd14e7a62a5d54d1300996afaef6223ec8c49eecd97f0674d6664489a69daa",
+          "label_counts": {
+            "0": 29780,
+            "1": 37569
+          },
+          "labelled": true,
+          "source_parquets": [
+            {
+              "url": "https://huggingface.co/datasets/stanfordnlp/sst2/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet",
+              "path": "original_workspace/output/gpt1_style/task_finetuning/data/source_parquets/sst2/train/000_0000.parquet",
+              "bytes": 3110458,
+              "sha256": "c7921283b75a42e685f50edecb96798607ea0fcbfd0739ee8975f22c12d55f09"
+            }
+          ]
+        },
+        "validation": {
+          "path": "original_workspace/output/gpt1_style/task_finetuning/data/sst2_validation.jsonl",
+          "rows": 872,
+          "sha256": "9f7afa11e8d0309f4ea4732c7f11d78fb0f686f48fac5596a06db2ecf496678b",
+          "label_counts": {
+            "0": 428,
+            "1": 444
+          },
+          "labelled": true,
+          "source_parquets": [
+            {
+              "url": "https://huggingface.co/datasets/stanfordnlp/sst2/resolve/refs%2Fconvert%2Fparquet/default/validation/0000.parquet",
+              "path": "original_workspace/output/gpt1_style/task_finetuning/data/source_parquets/sst2/validation/000_0000.parquet",
+              "bytes": 72813,
+              "sha256": "fb00fe008f6828f86ba2beda8415a4cf5da0c884f21c5f238c87131b5aa19529"
+            }
+          ]
+        },
+        "test": {
+          "path": "original_workspace/output/gpt1_style/task_finetuning/data/sst2_test.jsonl",
+          "rows": 1821,
+          "sha256": "2b8c1efc9ebea4f988382cc5d91aa3b636bff90e16795d705b2a25ef8b2cfd5b",
+          "label_counts": {
+            "-1": 1821
+          },
+          "labelled": false,
+          "source_parquets": [
+            {
+              "url": "https://huggingface.co/datasets/stanfordnlp/sst2/resolve/refs%2Fconvert%2Fparquet/default/test/0000.parquet",
+              "path": "original_workspace/output/gpt1_style/task_finetuning/data/source_parquets/sst2/test/000_0000.parquet",
+              "bytes": 147787,
+              "sha256": "20d27a86c0c59acb746a41a481ebb1fc71edb72d94b5ccee7f23b9041b17adcf"
+            }
+          ]
+        }
+      }
+    },
+    "race_middle": {
+      "dataset": "ehovy/race",
+      "config": "middle",
+      "metadata_url": "https://datasets-server.huggingface.co/parquet?dataset=ehovy%2Frace",
+      "splits": {
+        "train": {
+          "path": "original_workspace/output/gpt1_style/task_finetuning/data/race_middle_train.jsonl",
+          "rows": 25421,
+          "sha256": "ed805e44773ff5856211f0713270222c8ca681e84c43b549cdecfbef97a46652",
+          "label_counts": {
+            "0": 5445,
+            "1": 6705,
+            "2": 7006,
+            "3": 6265
+          },
+          "labelled": true,
+          "source_parquets": [
+            {
+              "url": "https://huggingface.co/datasets/ehovy/race/resolve/refs%2Fconvert%2Fparquet/middle/train/0000.parquet",
+              "path": "original_workspace/output/gpt1_style/task_finetuning/data/source_parquets/race_middle/train/000_0000.parquet",
+              "bytes": 6969931,
+              "sha256": "33a9d28467c326b13684bddd651a3bdc057aea61b35f93258c95efd76a435f63"
+            }
+          ]
+        },
+        "validation": {
+          "path": "original_workspace/output/gpt1_style/task_finetuning/data/race_middle_validation.jsonl",
+          "rows": 1436,
+          "sha256": "385d417aaddbc25038d7bd4afbf9f385d4e3ae74bff532397ba938b0fbf0f622",
+          "label_counts": {
+            "0": 311,
+            "1": 384,
+            "2": 386,
+            "3": 355
+          },
+          "labelled": true,
+          "source_parquets": [
+            {
+              "url": "https://huggingface.co/datasets/ehovy/race/resolve/refs%2Fconvert%2Fparquet/middle/validation/0000.parquet",
+              "path": "original_workspace/output/gpt1_style/task_finetuning/data/source_parquets/race_middle/validation/000_0000.parquet",
+              "bytes": 406940,
+              "sha256": "c8ede76683827fc6f5219643626d171c2556ee6b47193b192f399c2f7c4e60a0"
+            }
+          ]
+        },
+        "test": {
+          "path": "original_workspace/output/gpt1_style/task_finetuning/data/race_middle_test.jsonl",
+          "rows": 1436,
+          "sha256": "dd9756cf41d600260b59064c2b10395affb53d769a4bf71017ca8dc6ceb005d9",
+          "label_counts": {
+            "0": 309,
+            "1": 388,
+            "2": 374,
+            "3": 365
+          },
+          "labelled": true,
+          "source_parquets": [
+            {
+              "url": "https://huggingface.co/datasets/ehovy/race/resolve/refs%2Fconvert%2Fparquet/middle/test/0000.parquet",
+              "path": "original_workspace/output/gpt1_style/task_finetuning/data/source_parquets/race_middle/test/000_0000.parquet",
+              "bytes": 404725,
+              "sha256": "4ea3fb86ab6bbf8746dd0eb0ac1961a1fdbd1214d6d5a901c37b0cad5b5c5971"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "split_policy": {
+    "sst2": "Train on official train; validation is the only public labelled holdout. Official test labels are hidden (-1).",
+    "race_middle": "Train on official middle/train; select using middle/validation; evaluate once on middle/test."
+  },
+  "normalization": "Exact input strings retained; sentiment labels are 0=negative,1=positive; RACE A/B/C/D mapped to integer 0/1/2/3; no examples generated or reassigned."
+}

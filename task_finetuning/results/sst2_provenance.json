@@ -1,0 +1,93 @@
+{
+  "model_source_sha256": "a28201b8194941a75d3ca2e0812e6d2d0eef1b2656cc0c9f8fd0ca65bf96b28b",
+  "trainer_sha256": "550f68528e3dbe630cb7f0ad29860d8bafb77767832819dab86ea598a29ad520",
+  "starting_checkpoint": {
+    "checkpoint": "original_workspace/Main folders/WiggleGPT v3/WiggleGPT/out-wigglegpt-pure-124m/ckpt.pt",
+    "saved_step": 600000,
+    "parameters": 123697920,
+    "model_args": {
+      "n_layer": 12,
+      "n_head": 12,
+      "n_embd": 768,
+      "block_size": 1024,
+      "bias": false,
+      "vocab_size": 50304,
+      "dropout": 0.0,
+      "use_bio_mlp": true,
+      "use_rmsnorm": true,
+      "use_rope": true,
+      "gradient_checkpointing": false
+    },
+    "torch": "2.11.0.dev20260215+cu128",
+    "checkpoint_sha256": "88afaab6c93ef3e33940b4e25cbce2f44038c428109600afe8285586a3a767b9"
+  },
+  "torch": "2.11.0.dev20260215+cu128",
+  "markers": {
+    "start": 50257,
+    "delimiter": 50258,
+    "classify": 50259,
+    "pad": 50256
+  },
+  "native_backbone_dropout": 0.0,
+  "data": {
+    "train": {
+      "example_ids_summary": {
+        "count": 67349,
+        "sha256_json": "2407adf1dd74958d0bc7a0d05034729d11b0cd55a1e3a357e44e0b2e6e3701b1"
+      },
+      "metadata": {
+        "task": "sst2",
+        "split": "train",
+        "examples": 67349,
+        "choices": 1,
+        "source_jsonl": "original_workspace/output/gpt1_style/task_finetuning/data/sst2_train.jsonl",
+        "source_sha256": "75fd14e7a62a5d54d1300996afaef6223ec8c49eecd97f0674d6664489a69daa",
+        "pad_length": 80,
+        "max_sequence_length": 67,
+        "min_sequence_length": 4,
+        "max_untruncated_length": 67,
+        "truncation": {
+          "examples_with_truncation": 0,
+          "candidate_sequences_with_truncation": 0,
+          "total_tokens_removed": 0,
+          "max_tokens_removed_per_example": 0
+        },
+        "context_policy": "[START] + review first 510 tokens + [CLS]; right-pad to the split maximum rounded up to a multiple of 16 (minimum 16).",
+        "input_ids_dtype": "int32",
+        "lengths_dtype": "int64",
+        "labels_dtype": "int64"
+      },
+      "source_sha256": "75fd14e7a62a5d54d1300996afaef6223ec8c49eecd97f0674d6664489a69daa"
+    },
+    "validation": {
+      "example_ids_summary": {
+        "count": 872,
+        "sha256_json": "5c2ec0e8e6c25bfe98bfa1769994fb1d2b1ac092caab6423f798d5a63cb01c18"
+      },
+      "metadata": {
+        "task": "sst2",
+        "split": "validation",
+        "examples": 872,
+        "choices": 1,
+        "source_jsonl": "original_workspace/output/gpt1_style/task_finetuning/data/sst2_validation.jsonl",
+        "source_sha256": "9f7afa11e8d0309f4ea4732c7f11d78fb0f686f48fac5596a06db2ecf496678b",
+        "pad_length": 64,
+        "max_sequence_length": 63,
+        "min_sequence_length": 5,
+        "max_untruncated_length": 63,
+        "truncation": {
+          "examples_with_truncation": 0,
+          "candidate_sequences_with_truncation": 0,
+          "total_tokens_removed": 0,
+          "max_tokens_removed_per_example": 0
+        },
+        "context_policy": "[START] + review first 510 tokens + [CLS]; right-pad to the split maximum rounded up to a multiple of 16 (minimum 16).",
+        "input_ids_dtype": "int32",
+        "lengths_dtype": "int64",
+        "labels_dtype": "int64"
+      },
+      "source_sha256": "9f7afa11e8d0309f4ea4732c7f11d78fb0f686f48fac5596a06db2ecf496678b"
+    }
+  },
+  "all_backbone_parameters_train": true
+}

@@ -1,0 +1,130 @@
+{
+  "model_source_sha256": "a28201b8194941a75d3ca2e0812e6d2d0eef1b2656cc0c9f8fd0ca65bf96b28b",
+  "trainer_sha256": "aaa80085a75147c02945e7e09bcdd0d18c929a79a12ffce2a830fa29c5d81cfe",
+  "starting_checkpoint": {
+    "checkpoint": "original_workspace/Main folders/WiggleGPT v3/WiggleGPT/out-wigglegpt-pure-124m/ckpt.pt",
+    "saved_step": 600000,
+    "parameters": 123697920,
+    "model_args": {
+      "n_layer": 12,
+      "n_head": 12,
+      "n_embd": 768,
+      "block_size": 1024,
+      "bias": false,
+      "vocab_size": 50304,
+      "dropout": 0.0,
+      "use_bio_mlp": true,
+      "use_rmsnorm": true,
+      "use_rope": true,
+      "gradient_checkpointing": false
+    },
+    "torch": "2.11.0.dev20260215+cu128",
+    "checkpoint_sha256": "88afaab6c93ef3e33940b4e25cbce2f44038c428109600afe8285586a3a767b9"
+  },
+  "torch": "2.11.0.dev20260215+cu128",
+  "markers": {
+    "start": 50257,
+    "delimiter": 50258,
+    "classify": 50259,
+    "pad": 50256
+  },
+  "native_backbone_dropout": 0.0,
+  "data": {
+    "train": {
+      "example_ids_summary": {
+        "count": 25421,
+        "sha256_json": "d7830571364e17c9f20533af95cb0a01cb686fef1467f91eaa065d563e8d7abd"
+      },
+      "metadata": {
+        "task": "race_middle",
+        "split": "train",
+        "examples": 25421,
+        "choices": 4,
+        "source_jsonl": "original_workspace/output/gpt1_style/task_finetuning/data/race_middle_train.jsonl",
+        "source_sha256": "ed805e44773ff5856211f0713270222c8ca681e84c43b549cdecfbef97a46652",
+        "pad_length": 512,
+        "max_sequence_length": 512,
+        "min_sequence_length": 20,
+        "max_untruncated_length": 673,
+        "truncation": {
+          "examples_with_truncation": 210,
+          "candidate_sequences_with_truncation": 840,
+          "total_tokens_removed": 10052,
+          "max_tokens_removed_per_example": 161
+        },
+        "context_policy": "[START] + shared article prefix + [DELIM] + complete question + [DELIM] + complete answer + [CLS]; all four choices retain the same article prefix, budgeted using the longest answer; right-pad to 512.",
+        "input_ids_dtype": "int32",
+        "lengths_dtype": "int64",
+        "labels_dtype": "int64"
+      },
+      "source_sha256": "ed805e44773ff5856211f0713270222c8ca681e84c43b549cdecfbef97a46652"
+    },
+    "validation": {
+      "example_ids_summary": {
+        "count": 1436,
+        "sha256_json": "6cf3bb9048136b26ef8bee6be1ce9c9245e35d7522f93817b3d226be26cf9a76"
+      },
+      "metadata": {
+        "task": "race_middle",
+        "split": "validation",
+        "examples": 1436,
+        "choices": 4,
+        "source_jsonl": "original_workspace/output/gpt1_style/task_finetuning/data/race_middle_validation.jsonl",
+        "source_sha256": "385d417aaddbc25038d7bd4afbf9f385d4e3ae74bff532397ba938b0fbf0f622",
+        "pad_length": 512,
+        "max_sequence_length": 512,
+        "min_sequence_length": 65,
+        "max_untruncated_length": 530,
+        "truncation": {
+          "examples_with_truncation": 9,
+          "candidate_sequences_with_truncation": 36,
+          "total_tokens_removed": 71,
+          "max_tokens_removed_per_example": 18
+        },
+        "context_policy": "[START] + shared article prefix + [DELIM] + complete question + [DELIM] + complete answer + [CLS]; all four choices retain the same article prefix, budgeted using the longest answer; right-pad to 512.",
+        "input_ids_dtype": "int32",
+        "lengths_dtype": "int64",
+        "labels_dtype": "int64"
+      },
+      "source_sha256": "385d417aaddbc25038d7bd4afbf9f385d4e3ae74bff532397ba938b0fbf0f622"
+    },
+    "test": {
+      "example_ids_summary": {
+        "count": 1436,
+        "sha256_json": "09b875e7553744bf6ebc8334df4277de389fab670a84e1a131a76ed2fac5253e"
+      },
+      "metadata": {
+        "task": "race_middle",
+        "split": "test",
+        "examples": 1436,
+        "choices": 4,
+        "source_jsonl": "original_workspace/output/gpt1_style/task_finetuning/data/race_middle_test.jsonl",
+        "source_sha256": "dd9756cf41d600260b59064c2b10395affb53d769a4bf71017ca8dc6ceb005d9",
+        "pad_length": 512,
+        "max_sequence_length": 512,
+        "min_sequence_length": 41,
+        "max_untruncated_length": 565,
+        "truncation": {
+          "examples_with_truncation": 14,
+          "candidate_sequences_with_truncation": 56,
+          "total_tokens_removed": 531,
+          "max_tokens_removed_per_example": 53
+        },
+        "context_policy": "[START] + shared article prefix + [DELIM] + complete question + [DELIM] + complete answer + [CLS]; all four choices retain the same article prefix, budgeted using the longest answer; right-pad to 512.",
+        "input_ids_dtype": "int32",
+        "lengths_dtype": "int64",
+        "labels_dtype": "int64"
+      },
+      "source_sha256": "dd9756cf41d600260b59064c2b10395affb53d769a4bf71017ca8dc6ceb005d9"
+    }
+  },
+  "all_backbone_parameters_train": true,
+  "optimizations": {
+    "version": 2,
+    "training_padding": "CPU epoch plan crops each unchanged microbatch to its longest candidate, rounded up to 16 tokens (minimum 16).",
+    "auxiliary_lm": "Project only valid next-token positions; weight each token by the inverse length of its own candidate, then average all candidates.",
+    "device_synchronization": "One order copy to CPU per epoch; CPU-known output_size avoids synchronization when building packed CUDA indices.",
+    "question_order_and_effective_batch": "Original seeded CUDA randperm, effective batch and microbatch membership retained.",
+    "native_backbone": "Unchanged native model_bio.py and configured gradient checkpointing retained."
+  }
+}

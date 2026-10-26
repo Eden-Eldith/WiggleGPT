@@ -1,0 +1,137 @@
+{
+  "release_date": "2026-10-26",
+  "scope": "Portable task-fine-tuning source, documentation and recorded completed results; model weights and source corpus excluded.",
+  "hash_algorithm": "sha256",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 83,
+      "sha256": "3526090e3b9dc17c59f7e0d6ae5dbcda1de7a6bda18089664735cb6a690b6041"
+    },
+    {
+      "path": "data/.gitkeep",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "encode_task_data.py",
+      "bytes": 6919,
+      "sha256": "a34ff2961aed6885edaabea57698d6f335ea133ca8cbc31dc1cd7ae6620db656"
+    },
+    {
+      "path": "evaluate_tasks.py",
+      "bytes": 3931,
+      "sha256": "dd7f6aafd74864781f9d3a1d48d93afcfbb2a66d4890083aba7742cf93c492bd"
+    },
+    {
+      "path": "native/model_bio.py",
+      "bytes": 22768,
+      "sha256": "a28201b8194941a75d3ca2e0812e6d2d0eef1b2656cc0c9f8fd0ca65bf96b28b"
+    },
+    {
+      "path": "prepare_data.py",
+      "bytes": 5877,
+      "sha256": "ded7db958c65fc2ab4bc65d941e3d0dec1f7fe6d82e854f1ef05fdb955563d45"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8842,
+      "sha256": "40d4095b69809172497b85f54a6d01f60040eaff10c86cc0b92a188f518ce254"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 197,
+      "sha256": "4d4f6bbb4eeb6313107c263be41782dda4126b3111687c97653f6b1eee305757"
+    },
+    {
+      "path": "results/comparison.json",
+      "bytes": 2011762,
+      "sha256": "bc1ca4d680729e5b31596c439b2747973f761c6ff59c6d82afd5b97b0f2f6fb5"
+    },
+    {
+      "path": "results/dataset_manifest.json",
+      "bytes": 6059,
+      "sha256": "cac78408eede4920cd81b254076452cf7fac0bbcac11e745bb8e84faa2e4cad7"
+    },
+    {
+      "path": "results/encoding_summary.json",
+      "bytes": 7687,
+      "sha256": "fc19f57cd388770c23c4c70c1387dbb2b7ac1d94b7454e42a158a088056c7b77"
+    },
+    {
+      "path": "results/race_middle_metrics.jsonl",
+      "bytes": 41545,
+      "sha256": "1c9317edef4001cfd08d8596f62c078e0ba2c4b853cf7d808dd09fb43a428109"
+    },
+    {
+      "path": "results/race_middle_provenance.json",
+      "bytes": 5766,
+      "sha256": "b1d3d6e88288d499739a685859f915a419f5c19835180a3d14ae2e3e9228dbdd"
+    },
+    {
+      "path": "results/race_middle_resume_provenance.json",
+      "bytes": 1395,
+      "sha256": "fdddebde55b6aadbabca3eb52c4836d6d0b52bc5818f7a480f57db352909ffe5"
+    },
+    {
+      "path": "results/sst2_metrics.jsonl",
+      "bytes": 93890,
+      "sha256": "cd4687d15c9961226589b9af0fb120d0b5a0d5fc842805613a2c68bb40a9ba10"
+    },
+    {
+      "path": "results/sst2_provenance.json",
+      "bytes": 3517,
+      "sha256": "d0d0e3725e2e1a4850ffe4eba35500bfa5472db7d01a743b2d28e59a1187e1bf"
+    },
+    {
+      "path": "results/train_tasks_original_source.txt",
+      "bytes": 25970,
+      "sha256": "550f68528e3dbe630cb7f0ad29860d8bafb77767832819dab86ea598a29ad520"
+    },
+    {
+      "path": "results/train_tasks_v2_original_source.txt",
+      "bytes": 32940,
+      "sha256": "aaa80085a75147c02945e7e09bcdd0d18c929a79a12ffce2a830fa29c5d81cfe"
+    },
+    {
+      "path": "results/train_tasks_v3_original_source.txt",
+      "bytes": 35247,
+      "sha256": "080b06025459b59c2dddb2be046f28c5906e40915dbbb325a8c64642511d5517"
+    },
+    {
+      "path": "results/WiggleGPT_Generation_Record.json",
+      "bytes": 49589,
+      "sha256": "c6ddd0ddda5be70123183de255f692fc12a1ea3ea1322df6939683ca978a62b6"
+    },
+    {
+      "path": "task_runtime.py",
+      "bytes": 4263,
+      "sha256": "220b2530cf05fabd313a58ca56059bfcc3332a77b3ee1cd374510996fc22c227"
+    },
+    {
+      "path": "tokenizer/gpt2.tiktoken",
+      "bytes": 835554,
+      "sha256": "306cd27f03c1a714eca7108e03d66b7dc042abe8c258b44c199a7ed9838dd930"
+    },
+    {
+      "path": "train_config.json",
+      "bytes": 892,
+      "sha256": "93303a4fa1a527dcf8390eaec4bb9a557d47e30dd42245e85b39658fd3a7e5d2"
+    },
+    {
+      "path": "train_tasks.py",
+      "bytes": 26998,
+      "sha256": "b6dc440f26f74f58439640432828e7c1992d2f056896d554ad7fb647beb3c962"
+    },
+    {
+      "path": "train_tasks_v3.py",
+      "bytes": 36077,
+      "sha256": "57f66db8fe63d254a430e5d97c3757311fdc0e74ce40f9dbc76c56ddd696cbbb"
+    },
+    {
+      "path": "WiggleGPT_Demonstration.pdf",
+      "bytes": 2187032,
+      "sha256": "032920d6249b0e392012bfb6da0f8e5d34ca1bb173f2c75b2bb902e580330ad1"
+    }
+  ]
+}

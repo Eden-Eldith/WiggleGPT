@@ -23,6 +23,25 @@ All original modifications and bio-inspired components © 2025 Phillip C. O'Brie
 
 ---
 
+## New results: supervised task adaptation (26 October 2026)
+
+Revisiting the original 124M WiggleGPT with GPT-1-style task fine-tuning produced **90.1% SST-2 sentiment accuracy** and **59.5% RACE-middle reading accuracy** after three full epochs per task.
+
+| Task and scored split | Before task training | After task training |
+|---|---:|---:|
+| SST-2, public validation | 437/872 (50.1%) | **786/872 (90.1%)** |
+| RACE-middle, test | 385/1,436 (26.8%) | **854/1,436 (59.5%)** |
+
+Each adaptation trains the full backbone independently from the original **600,000-step pretrained checkpoint**, with a new linear task classifier and an auxiliary language-model loss. “Before” evaluates the same initialized classifier before task training. Both runs completed all three epochs and use validation-selected checkpoints. The SmolTalk instruction model remains a separate branch of the work.
+
+[Revised paper (26 October 2026)](publication_assets/WiggleGPT_Paper_2026-10-26.pdf) · [Editable paper source](publication_assets/WiggleGPT_Paper_2026-10-26_sources.zip) · [Results graphic](publication_assets/WiggleGPT_Task_Results_X.png)
+
+[Task methods, portable training and evaluation](task_finetuning/README.md) · [Demonstration PDF](task_finetuning/WiggleGPT_Demonstration.pdf) · [Complete paired prediction record](task_finetuning/results/comparison.json)
+
+For historical context, GPT-1 reported 91.3% on SST-2 **GLUE test** and 62.9% on RACE-M using **combined middle/high training**. WiggleGPT's scores above use SST-2 validation and middle-only RACE training; the split and training coverage differ. Details and source links are in the task documentation.
+
+---
+
 ## 🎯 Core Research Question
 
 **Can a single neuron with oscillating activations solve XOR?**
@@ -563,14 +582,15 @@ See the [LICENSE](LICENSE) file for full terms.
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| **v3 task extension** | October 2026 | Three-epoch supervised adaptations: SST-2 validation 90.1%, RACE-middle test 59.5%; portable task scripts and full prediction record |
 | **v3** | November 2025 | 124M pretraining complete (3.1621 val loss), instruction fine-tuning on SmolTalk2 (1.3184 val loss) |
 | **v2** | October 2025 | Removed dendritic routing, 45M model with sparsity (3.587 val loss) |
 | **v1** | October 2025 | Included dendritic compartments, 89M params, unscalable |
 
 ---
 
-**Last Updated**: November 30, 2025  
-**Status**: Research Complete - Pretraining & Fine-Tuning ✅
+**Last Updated**: October 26, 2026  
+**Status**: Pretraining, instruction fine-tuning and supervised task adaptation complete ✅
 
 ---
 

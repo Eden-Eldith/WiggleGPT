@@ -1,0 +1,471 @@
+{
+  "revision": "2026.10.26",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 116,
+      "sha256": "bf6e63b0fcc257a7dfc050485ae5dc159e742e355d1ab37daa35acc5ce23f0e6"
+    },
+    {
+      "path": "Analysis scripts/analyze_brainwaves.py",
+      "bytes": 23773,
+      "sha256": "35f1f5019cad2842067d5e2d41f6f9d1c9c723a412973dfe055d754cc4a4c2c9"
+    },
+    {
+      "path": "Analysis scripts/analyze_wiggle-finetune.py",
+      "bytes": 9041,
+      "sha256": "44ebb6f069c87a1dc5d3c28973ffd513ea72f0b4f5a29ba0f235465ebc8b052b"
+    },
+    {
+      "path": "Analysis scripts/analyze_wiggle-pretrain.py",
+      "bytes": 6354,
+      "sha256": "7589950a66b4a553832360e88094fd5c2d5a20147bb15b9d46f9127798926ba3"
+    },
+    {
+      "path": "Analysis scripts/generate_finetune_loss_chart.py",
+      "bytes": 3553,
+      "sha256": "56ec891f72d7bca40ca55792ec015a6eccce5dee135cb79f8f220f4f89ebd04a"
+    },
+    {
+      "path": "Analysis scripts/generate_pretrain_loss_chart.py",
+      "bytes": 4595,
+      "sha256": "d65b5f881e88efaf24abf4cbcd46bdf97e67f3e89ca6ed2a2aec47cf211bfa09"
+    },
+    {
+      "path": "Analysis scripts/generate_social_media_visuals.py",
+      "bytes": 20751,
+      "sha256": "8f1c8bf8894ad5dc91b606e8a364e327f419f32a435daac26900282b858bf7f5"
+    },
+    {
+      "path": "Analysis scripts/outputs-brainwave/band_power_comparison.png",
+      "bytes": 100972,
+      "sha256": "3c5d0dfe5a215d81f12ac684f5bdbd26b27144eca1b6ecea34f427aeec841850"
+    },
+    {
+      "path": "Analysis scripts/outputs-brainwave/brain_topography.png",
+      "bytes": 149676,
+      "sha256": "19efa57f9ea5cefd62be2aad02b8805ccfa33ba29e27f5ee3a331335816310da"
+    },
+    {
+      "path": "Analysis scripts/outputs-brainwave/coherence_heatmap.png",
+      "bytes": 241468,
+      "sha256": "c3ef8e0bce003f48e8c4ca7ca0538b8a4f803d59cd15754a1e82291c38caa08d"
+    },
+    {
+      "path": "Analysis scripts/outputs-brainwave/eeg_channels.png",
+      "bytes": 354377,
+      "sha256": "fde46b21c47a1ea6c3b4537d74cd34a998caffb6208e0f3320875e020ac8e500"
+    },
+    {
+      "path": "Analysis scripts/outputs-brainwave/eeg_power_spectrum.png",
+      "bytes": 198987,
+      "sha256": "c820d3ed8474aa58b0b31dacd30abac07e0785a2d981f11700bcdb6cc801e21b"
+    },
+    {
+      "path": "Analysis scripts/outputs-finetune/wiggle_fingerprint.png",
+      "bytes": 298478,
+      "sha256": "337d83e093cd8750c8212b9e916913ac27cfc400cb06de799884dece2cd0e2af"
+    },
+    {
+      "path": "Analysis scripts/outputs-finetune/wiggle_galaxy.png",
+      "bytes": 2247640,
+      "sha256": "d7047004374de62b1b8dae50a50f0c463458a10f3268fb2fb40485cb55f243c0"
+    },
+    {
+      "path": "Analysis scripts/outputs-finetune/wiggle_hero.png",
+      "bytes": 971083,
+      "sha256": "a6e771e0786d63ef329e32b775d343cda75f872c38e0d26c9b967f4e25042c1b"
+    },
+    {
+      "path": "Analysis scripts/outputs-pretrain/wiggle_fingerprint.png",
+      "bytes": 301802,
+      "sha256": "d807a8c126fb7de93e77c5819677a88f612d8f24f90403bc45456741d90edfed"
+    },
+    {
+      "path": "Analysis scripts/outputs-pretrain/wiggle_galaxy.png",
+      "bytes": 2248755,
+      "sha256": "c4c29909448acfa1403344595fe340cd0f139f730922263691ae0bb9d2d24e82"
+    },
+    {
+      "path": "Analysis scripts/outputs-pretrain/wiggle_hero.png",
+      "bytes": 956319,
+      "sha256": "036e5b7710e71f84211b7ef7109af7a6bade4ee495f39dbe6d7e0554c89836da"
+    },
+    {
+      "path": "Analysis scripts/Readme-Analysis-loss-scripts.md",
+      "bytes": 8404,
+      "sha256": "1b7b5f49de036b3bc3928e853a85cc6ef70b49e9e97655516c1b9bbb9f07655d"
+    },
+    {
+      "path": "bio_inspired_neurons2.py",
+      "bytes": 30396,
+      "sha256": "46554f596d6862ccf52beffae7f92fabea1af7909ad8627b7940632bf90af20b"
+    },
+    {
+      "path": "chat.py",
+      "bytes": 6917,
+      "sha256": "ba5d5f41fa89d52538a5cc424fcbe5e22b15f0199e5ab1c761df36279cb2ff48"
+    },
+    {
+      "path": "config_finetune_native.py",
+      "bytes": 4770,
+      "sha256": "933a5488817b89cf1f3dc36c2394fe41531aa27920d8455ea0362c4d7afcc586"
+    },
+    {
+      "path": "config_finetune_smoltalk.py",
+      "bytes": 4701,
+      "sha256": "91b1b5607f48eb27e2131ada4c63e92b54845be853334b6668606214d4be8c02"
+    },
+    {
+      "path": "config_gpt2_bio_3070.py",
+      "bytes": 1664,
+      "sha256": "a39d67009eb28916c7028d02d4cf269e3f4936d16c1923e7bf9285b0ad597cad"
+    },
+    {
+      "path": "configurator.py",
+      "bytes": 1758,
+      "sha256": "5cc23aca26b4ab3c0d9e5f82740f4781f9444f42718c15abcee70d93c5aabe8f"
+    },
+    {
+      "path": "data/openwebtext/prepare_openwebtext_streaming.py",
+      "bytes": 8219,
+      "sha256": "1469197b898622abff20890aff230466f1fbb738776d330de74b3357ff388bec"
+    },
+    {
+      "path": "finetune_native.py",
+      "bytes": 20487,
+      "sha256": "060714de8f84e31a8e7f54a283848622237feb9fc49fb221e569c7d5eb8be6dc"
+    },
+    {
+      "path": "finetune_smoltalk.py",
+      "bytes": 22976,
+      "sha256": "3606acf2b3eae98330a61bc2422cfa305ffa385f06ae53bb423daa2b74c45dd3"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 36149,
+      "sha256": "d860fb7bf798df7be23145c984bf71acd23f725a28388f8b6308ba322335a5e5"
+    },
+    {
+      "path": "model.py",
+      "bytes": 16345,
+      "sha256": "7c01703240dbec5d554527dc666e35b3df8391d0b117fddc07afcf325a21d11c"
+    },
+    {
+      "path": "model_bio.py",
+      "bytes": 22711,
+      "sha256": "a8aa4297fcad1c1027251587b9dbbb13590eb58aa71899591e73d9e114fc8d00"
+    },
+    {
+      "path": "optimizations/config_gpt2_bio_optimized.py",
+      "bytes": 2868,
+      "sha256": "b8263bf9f2afebbd54df101d34808879e6434cd746db3a09601e1ee02cf92a5a"
+    },
+    {
+      "path": "optimizations/model_bio_optimized.py",
+      "bytes": 24737,
+      "sha256": "bde62453b007cccad3ddc474cc8c6d92407d97458b15387f3648bf89be06d54e"
+    },
+    {
+      "path": "optimizations/OPTIMIZATION_SUMMARY.md",
+      "bytes": 6731,
+      "sha256": "ae59d32ac3bcf96d4244464867df0f2dd7288c186c62bd73d5925dd102e7cbdd"
+    },
+    {
+      "path": "optimizations/requirements-optimizers.txt",
+      "bytes": 665,
+      "sha256": "6f9ad944ad6ad03dd68b4bad0fbfcf6d51598dd935ce441dcbafa52eb3bdd162"
+    },
+    {
+      "path": "optimizations/train_bio_optimized.py",
+      "bytes": 18544,
+      "sha256": "dba7551bafbf76cec16effc2b0be2834bd07df6c4996f059f8a6bdb695f21e8d"
+    },
+    {
+      "path": "optimizations/TRAINING_OPTIMIZATIONS.md",
+      "bytes": 17620,
+      "sha256": "935d046ab333958a0d8062516165e515e210583c91ca464a1b591f2ada43aedd"
+    },
+    {
+      "path": "publication_assets/WiggleGPT_Paper_2026-10-26.pdf",
+      "bytes": 8806888,
+      "sha256": "c17fd4b3b4265af28fcfec5f0d641a5701f59e2ab27174670e7c00946c19bdd8"
+    },
+    {
+      "path": "publication_assets/WiggleGPT_Paper_2026-10-26_sources.zip",
+      "bytes": 9507200,
+      "sha256": "fd587aec8e12567071854afe6d82bb902e5b8d15f8c962a735ea46c51678a027"
+    },
+    {
+      "path": "publication_assets/WiggleGPT_Task_Results_X.png",
+      "bytes": 1617011,
+      "sha256": "a316f950ae2e6570f11aa50b3c0c2cd5e687e04b4e45ca5776188fd324c014bc"
+    },
+    {
+      "path": "README.md",
+      "bytes": 23150,
+      "sha256": "637f36f69d6ce51f83e49459ea208f4c994ef0b9faba9a452495d776eae9f2a9"
+    },
+    {
+      "path": "Research docs/DENDRITIC_REMOVAL_STORY.md",
+      "bytes": 6297,
+      "sha256": "23ab58bc3832268ad9bd1022726bac582151e67273afd1802422db6571aea875"
+    },
+    {
+      "path": "Research docs/Wiggle-GPT paper/finetune_loss_chart.png",
+      "bytes": 141876,
+      "sha256": "7ff7f06b3bca91bb5ef0096a71021e66e1ff3048983c4a703fdfd62e870a4f71"
+    },
+    {
+      "path": "Research docs/Wiggle-GPT paper/pretrain_loss_chart.png",
+      "bytes": 166041,
+      "sha256": "8b8d6c58757879903088f15d73cb42e0d0c8cff85030d042245dafac27f7448b"
+    },
+    {
+      "path": "Research docs/Wiggle-GPT paper/wiggle_analysis.png",
+      "bytes": 211511,
+      "sha256": "0df20c1eda39920d8a690a40014560f1b6b11972a141041432f051b1d51c92c9"
+    },
+    {
+      "path": "Research docs/Wiggle-GPT paper/wiggle_finetune_analysis.png",
+      "bytes": 257281,
+      "sha256": "2f5b1ed0621279136fba5e2328629538235b32de8f9cf816c77a53c3ed99d380"
+    },
+    {
+      "path": "Research docs/Wiggle-GPT paper/WiggleGPT Paper.md",
+      "bytes": 36015,
+      "sha256": "d989f8a9375e1b95aa4bf20e20056ba30e2b64d8dba6c056c83e15fd8af4b73a"
+    },
+    {
+      "path": "sample_bio.py",
+      "bytes": 5491,
+      "sha256": "2ec97507012be50c878afe5f7ab19996d1da156f66a188e1a7d5a45cf2c78736"
+    },
+    {
+      "path": "task_finetuning/.gitignore",
+      "bytes": 83,
+      "sha256": "3526090e3b9dc17c59f7e0d6ae5dbcda1de7a6bda18089664735cb6a690b6041"
+    },
+    {
+      "path": "task_finetuning/data/.gitkeep",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "task_finetuning/encode_task_data.py",
+      "bytes": 6919,
+      "sha256": "a34ff2961aed6885edaabea57698d6f335ea133ca8cbc31dc1cd7ae6620db656"
+    },
+    {
+      "path": "task_finetuning/evaluate_tasks.py",
+      "bytes": 3931,
+      "sha256": "dd7f6aafd74864781f9d3a1d48d93afcfbb2a66d4890083aba7742cf93c492bd"
+    },
+    {
+      "path": "task_finetuning/native/model_bio.py",
+      "bytes": 22768,
+      "sha256": "a28201b8194941a75d3ca2e0812e6d2d0eef1b2656cc0c9f8fd0ca65bf96b28b"
+    },
+    {
+      "path": "task_finetuning/prepare_data.py",
+      "bytes": 5877,
+      "sha256": "ded7db958c65fc2ab4bc65d941e3d0dec1f7fe6d82e854f1ef05fdb955563d45"
+    },
+    {
+      "path": "task_finetuning/README.md",
+      "bytes": 8842,
+      "sha256": "40d4095b69809172497b85f54a6d01f60040eaff10c86cc0b92a188f518ce254"
+    },
+    {
+      "path": "task_finetuning/requirements.txt",
+      "bytes": 197,
+      "sha256": "4d4f6bbb4eeb6313107c263be41782dda4126b3111687c97653f6b1eee305757"
+    },
+    {
+      "path": "task_finetuning/results/comparison.json",
+      "bytes": 2011762,
+      "sha256": "bc1ca4d680729e5b31596c439b2747973f761c6ff59c6d82afd5b97b0f2f6fb5"
+    },
+    {
+      "path": "task_finetuning/results/dataset_manifest.json",
+      "bytes": 6059,
+      "sha256": "cac78408eede4920cd81b254076452cf7fac0bbcac11e745bb8e84faa2e4cad7"
+    },
+    {
+      "path": "task_finetuning/results/encoding_summary.json",
+      "bytes": 7687,
+      "sha256": "fc19f57cd388770c23c4c70c1387dbb2b7ac1d94b7454e42a158a088056c7b77"
+    },
+    {
+      "path": "task_finetuning/results/manifest.json",
+      "bytes": 4514,
+      "sha256": "23f9a9a09c57fa05d294439830c0cffdfaa70096d99e53404eddcf3a2e2316ce"
+    },
+    {
+      "path": "task_finetuning/results/race_middle_metrics.jsonl",
+      "bytes": 41545,
+      "sha256": "1c9317edef4001cfd08d8596f62c078e0ba2c4b853cf7d808dd09fb43a428109"
+    },
+    {
+      "path": "task_finetuning/results/race_middle_provenance.json",
+      "bytes": 5766,
+      "sha256": "b1d3d6e88288d499739a685859f915a419f5c19835180a3d14ae2e3e9228dbdd"
+    },
+    {
+      "path": "task_finetuning/results/race_middle_resume_provenance.json",
+      "bytes": 1395,
+      "sha256": "fdddebde55b6aadbabca3eb52c4836d6d0b52bc5818f7a480f57db352909ffe5"
+    },
+    {
+      "path": "task_finetuning/results/sst2_metrics.jsonl",
+      "bytes": 93890,
+      "sha256": "cd4687d15c9961226589b9af0fb120d0b5a0d5fc842805613a2c68bb40a9ba10"
+    },
+    {
+      "path": "task_finetuning/results/sst2_provenance.json",
+      "bytes": 3517,
+      "sha256": "d0d0e3725e2e1a4850ffe4eba35500bfa5472db7d01a743b2d28e59a1187e1bf"
+    },
+    {
+      "path": "task_finetuning/results/train_tasks_original_source.txt",
+      "bytes": 25970,
+      "sha256": "550f68528e3dbe630cb7f0ad29860d8bafb77767832819dab86ea598a29ad520"
+    },
+    {
+      "path": "task_finetuning/results/train_tasks_v2_original_source.txt",
+      "bytes": 32940,
+      "sha256": "aaa80085a75147c02945e7e09bcdd0d18c929a79a12ffce2a830fa29c5d81cfe"
+    },
+    {
+      "path": "task_finetuning/results/train_tasks_v3_original_source.txt",
+      "bytes": 35247,
+      "sha256": "080b06025459b59c2dddb2be046f28c5906e40915dbbb325a8c64642511d5517"
+    },
+    {
+      "path": "task_finetuning/results/WiggleGPT_Generation_Record.json",
+      "bytes": 49589,
+      "sha256": "c6ddd0ddda5be70123183de255f692fc12a1ea3ea1322df6939683ca978a62b6"
+    },
+    {
+      "path": "task_finetuning/task_runtime.py",
+      "bytes": 4263,
+      "sha256": "220b2530cf05fabd313a58ca56059bfcc3332a77b3ee1cd374510996fc22c227"
+    },
+    {
+      "path": "task_finetuning/tokenizer/gpt2.tiktoken",
+      "bytes": 835554,
+      "sha256": "306cd27f03c1a714eca7108e03d66b7dc042abe8c258b44c199a7ed9838dd930"
+    },
+    {
+      "path": "task_finetuning/train_config.json",
+      "bytes": 892,
+      "sha256": "93303a4fa1a527dcf8390eaec4bb9a557d47e30dd42245e85b39658fd3a7e5d2"
+    },
+    {
+      "path": "task_finetuning/train_tasks.py",
+      "bytes": 26998,
+      "sha256": "b6dc440f26f74f58439640432828e7c1992d2f056896d554ad7fb647beb3c962"
+    },
+    {
+      "path": "task_finetuning/train_tasks_v3.py",
+      "bytes": 36077,
+      "sha256": "57f66db8fe63d254a430e5d97c3757311fdc0e74ce40f9dbc76c56ddd696cbbb"
+    },
+    {
+      "path": "task_finetuning/WiggleGPT_Demonstration.pdf",
+      "bytes": 2187032,
+      "sha256": "032920d6249b0e392012bfb6da0f8e5d34ca1bb173f2c75b2bb902e580330ad1"
+    },
+    {
+      "path": "train_bio.py",
+      "bytes": 18459,
+      "sha256": "5459ab6076f6a3ca8f98d244b365fbdeb49985e44f878bbd6daafd039b52cbf1"
+    },
+    {
+      "path": "WiggleGPT-V1-OLD/config_gpt2_bio_3070.py",
+      "bytes": 854,
+      "sha256": "fac696b66eaf78d1d9b69112e0b23c51ebcad82e97b1af84bcb530f0693ded00"
+    },
+    {
+      "path": "WiggleGPT-V1-OLD/configurator.py",
+      "bytes": 1758,
+      "sha256": "5cc23aca26b4ab3c0d9e5f82740f4781f9444f42718c15abcee70d93c5aabe8f"
+    },
+    {
+      "path": "WiggleGPT-V1-OLD/data/openwebtext/prepare_openwebtext_streaming.py",
+      "bytes": 8219,
+      "sha256": "1469197b898622abff20890aff230466f1fbb738776d330de74b3357ff388bec"
+    },
+    {
+      "path": "WiggleGPT-V1-OLD/model.py",
+      "bytes": 16345,
+      "sha256": "7c01703240dbec5d554527dc666e35b3df8391d0b117fddc07afcf325a21d11c"
+    },
+    {
+      "path": "WiggleGPT-V1-OLD/model_bio.py",
+      "bytes": 26207,
+      "sha256": "96160b0d61131382cec8bd8a9635642192a5c7be67e246095d8ad0e12573cbb8"
+    },
+    {
+      "path": "WiggleGPT-V1-OLD/README.md",
+      "bytes": 32620,
+      "sha256": "f55968c955b3cf9662b440c0d7067bdc53c6ebccb10213e60b6c41290c7d3b4c"
+    },
+    {
+      "path": "WiggleGPT-V1-OLD/sample_bio.py",
+      "bytes": 5476,
+      "sha256": "f84b81c0f2a85e27e83e0a6b9e27bb72e80247a3186e14e29b7fdc1b80315411"
+    },
+    {
+      "path": "WiggleGPT-V1-OLD/train_bio.py",
+      "bytes": 16261,
+      "sha256": "ed9545581c9099a65f5e6ecf7a25f6f411f20710ba4537b5a9f0c9b381c3088e"
+    },
+    {
+      "path": "WiggleGPT-V2-OLD/config_gpt2_bio_3070.py",
+      "bytes": 966,
+      "sha256": "8f011b105d2fcf83a1fb2e1d34bb28b678f3c7395c8a2cae9f20df45b5be73ac"
+    },
+    {
+      "path": "WiggleGPT-V2-OLD/configurator.py",
+      "bytes": 1758,
+      "sha256": "5cc23aca26b4ab3c0d9e5f82740f4781f9444f42718c15abcee70d93c5aabe8f"
+    },
+    {
+      "path": "WiggleGPT-V2-OLD/data/openwebtext/prepare_openwebtext_streaming.py",
+      "bytes": 8219,
+      "sha256": "1469197b898622abff20890aff230466f1fbb738776d330de74b3357ff388bec"
+    },
+    {
+      "path": "WiggleGPT-V2-OLD/LICENSE",
+      "bytes": 1068,
+      "sha256": "294ad6d6a90f81767eb1ef47c86307d1f327a849c932c0ebaec63aa38a9b0954"
+    },
+    {
+      "path": "WiggleGPT-V2-OLD/model.py",
+      "bytes": 16345,
+      "sha256": "7c01703240dbec5d554527dc666e35b3df8391d0b117fddc07afcf325a21d11c"
+    },
+    {
+      "path": "WiggleGPT-V2-OLD/model_bio.py",
+      "bytes": 22401,
+      "sha256": "5a8a5ec6ac9db4b1f6c325ad1b1997171e2e480a5edc85ff88857c46d25dcff6"
+    },
+    {
+      "path": "WiggleGPT-V2-OLD/README.md",
+      "bytes": 22457,
+      "sha256": "4120165c1f3b7220fb2b7650b9446183f421c6336650a5cdf7acbacb789992d0"
+    },
+    {
+      "path": "WiggleGPT-V2-OLD/sample_bio.py",
+      "bytes": 5491,
+      "sha256": "2ec97507012be50c878afe5f7ab19996d1da156f66a188e1a7d5a45cf2c78736"
+    },
+    {
+      "path": "WiggleGPT-V2-OLD/train_bio.py",
+      "bytes": 16261,
+      "sha256": "ed9545581c9099a65f5e6ecf7a25f6f411f20710ba4537b5a9f0c9b381c3088e"
+    }
+  ],
+  "weights_included": false
+}

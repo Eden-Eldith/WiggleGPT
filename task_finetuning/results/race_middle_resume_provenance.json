@@ -1,0 +1,19 @@
+{
+  "resume_checkpoint": "original_workspace/output/gpt1_style/task_finetuning/runs/train_tasks_v2_2026-10-26_06-16-49_race_middle/latest.pt",
+  "resume_checkpoint_sha256": "abf2cbcec103ff914738edcf57a218252fd184d90bca403bd1d1c25732a03528",
+  "start_step": 400,
+  "epoch": 0,
+  "offset": 12800,
+  "trainer_source": "train_tasks_v3.py",
+  "trainer_sha256": "080b06025459b59c2dddb2be046f28c5906e40915dbbb325a8c64642511d5517",
+  "model_source_sha256": "a28201b8194941a75d3ca2e0812e6d2d0eef1b2656cc0c9f8fd0ca65bf96b28b",
+  "configuration_source": "Saved resume checkpoint configuration",
+  "optimizations": {
+    "version": 3,
+    "training_padding": "CPU epoch plan crops each unchanged microbatch to its longest candidate, rounded up to 16 tokens (minimum 16).",
+    "auxiliary_lm": "Project only valid next-token positions; weight each token by the inverse length of its own candidate, then average all candidates.",
+    "device_synchronization": "One order copy to CPU per epoch; CPU-known output_size avoids synchronization when building packed CUDA indices.",
+    "question_order_and_effective_batch": "Original seeded CUDA randperm, effective batch and microbatch membership retained.",
+    "native_backbone": "Unchanged native model_bio.py; RACE checkpointing enabled when cropped width exceeds 384 and disabled at or below 384. SST-2 keeps its configured setting."
+  }
+}
