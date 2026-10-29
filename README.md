@@ -34,7 +34,7 @@ Revisiting the original 124M WiggleGPT with GPT-1-style task fine-tuning produce
 
 Each adaptation trains the full backbone independently from the original **600,000-step pretrained checkpoint**, with a new linear task classifier and an auxiliary language-model loss. “Before” evaluates the same initialized classifier before task training. Both runs completed all three epochs and use validation-selected checkpoints. The SmolTalk instruction model remains a separate branch of the work.
 
-[Revised paper (26 October 2026)](publication_assets/WiggleGPT_Paper_2026-10-26.pdf) · [Editable paper source](publication_assets/WiggleGPT_Paper_2026-10-26_sources.zip) · [Results graphic](publication_assets/WiggleGPT_Task_Results_X.png)
+[Revised paper (26 October 2026)](publication_assets/WiggleGPT_Paper_2026-10-26.pdf) · [Editable paper source](publication_assets/WiggleGPT_Paper_2026-10-26_sources.zip) · [Results graphic](publication_assets/WiggleGPT_Task_Results_X_python.png)
 
 [Task methods, portable training and evaluation](task_finetuning/README.md) · [Demonstration PDF](task_finetuning/WiggleGPT_Demonstration.pdf) · [Complete paired prediction record](task_finetuning/results/comparison.json)
 
