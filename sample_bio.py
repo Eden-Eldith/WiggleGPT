@@ -10,7 +10,7 @@ from model_bio import GPTConfig, GPT
 
 # -----------------------------------------------------------------------------
 init_from = 'resume' # either 'resume' (from an out_dir) or a gpt2 variant (e.g. 'gpt2-xl')
-out_dir = 'out-gpt2-bio' # ignored if init_from is not 'resume'
+out_dir = 'out-wigglegpt-pure-124m' # ignored if init_from is not 'resume'
 start = "\n Hello WiggleGPT how are you? :)" # or "<|endoftext|>" or etc. Can also specify a file, use as: "FILE:prompt.txt"
 num_samples = 10 # number of samples to draw
 max_new_tokens = 500 # number of tokens generated in each sample
@@ -50,7 +50,6 @@ if init_from == 'resume':
     if hasattr(gptconf, 'use_bio_mlp') and gptconf.use_bio_mlp:
         print("🧠 Model uses BIO-INSPIRED NEURONS")
         print(f"  • Oscillating activations")
-        print(f"  • Sparse event gating (threshold: {gptconf.bio_threshold})")
     else:
         print("Standard nanoGPT model")
     
@@ -88,6 +87,11 @@ if start.startswith('FILE:'):
     with open(start[5:], 'r', encoding='utf-8') as f:
         start = f.read()
 start_ids = encode(start)
+# The native rotary path requires at least one token per attention head.
+# Match chat.py by left-padding short prompts with the GPT-2 space token.
+if getattr(model.config, 'use_rope', False) and len(start_ids) < model.config.n_head:
+    padding = encode(' ')[0]
+    start_ids = [padding] * (model.config.n_head - len(start_ids)) + start_ids
 x = (torch.tensor(start_ids, dtype=torch.long, device=device)[None, ...])
 
 # run generation with repetition penalty

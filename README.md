@@ -2,16 +2,16 @@
 
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [![Research](https://img.shields.io/badge/Research-Ongoing%20🔬-blueviolet.svg)](#-future-work)
 [![Val Loss](https://img.shields.io/badge/Val%20Loss-3.1621-purple.svg)](#wigglegpt-124m---pretraining-complete-)
 [![Parameters](https://img.shields.io/badge/Parameters-124M-orange.svg)](#wigglegpt-124m---pretraining-complete-)
 
 **Bio-Inspired Language Model with Oscillating Activation Functions**
 
-WiggleGPT is an experimental language model that challenges a 56-year-old assumption in neural networks: **that neurons must use monotonic activation functions.**
+WiggleGPT is an experimental language model that challenges a 57-year-old assumption in neural networks: **that neurons must use monotonic activation functions.**
 
-By replacing standard ReLU/GELU activations with learnable oscillating activation functions (`sin(ω·x + φ)·tanh(x)`), WiggleGPT demonstrates that biologically-inspired neurons can achieve competitive performance with standard transformers—matching GPT-2 124M within 1.3% while using identical parameter counts.
+By replacing standard ReLU/GELU activations with learnable oscillating activation functions (`sin(ω·x + φ)·tanh(x)`), WiggleGPT demonstrates that biologically-inspired neurons can achieve competitive performance with standard transformers—matching GPT-2 within 1.3% at the same approximately 124M-parameter scale.
 
 > **📄 Read the full paper:** [WiggleGPT Paper](https://garden-backend-three.vercel.app/finalized-work/wiggle-gpt/wiggle-gpt-paper/) 
 > **Model Weights** | [HuggingFace](https://huggingface.co/edeneldith/WiggleGPT)
@@ -19,7 +19,7 @@ By replacing standard ReLU/GELU activations with learnable oscillating activatio
 ---
 
 This project extends nanoGPT (MIT License, © Andrej Karpathy).  
-All original modifications and bio-inspired components © 2025 Phillip C. O'Brien, MIT License.
+All original modifications and bio-inspired components © 2025 Phillip C. O'Brien, GNU GPLv3.
 
 ---
 
@@ -57,9 +57,13 @@ Yes. Since Minsky and Papert's *Perceptrons* (1969), the field assumed multiple 
 | Model | Parameters | Val Loss | Training Iters | Notes |
 |-------|------------|----------|----------------|-------|
 | **WiggleGPT 124M** | 124M | **3.1621** | 600K | Oscillating activation |
-| GPT-2 124M (baseline) | 124M | ~3.12 | 600K | Standard GELU |
+| GPT-2 124M (baseline) | 124M | ~3.12 | 600K (nanoGPT GPT-2 recipe) | Standard GELU; ~3.12 is OpenAI's released checkpoint evaluated on OpenWebText |
+
+**Training recipe:** WiggleGPT follows **Andrej Karpathy's nanoGPT GPT-2 (124M) reproduction** ([`config/train_gpt2.py`](https://github.com/karpathy/nanoGPT/blob/master/config/train_gpt2.py)): 600,000 iterations, a 6e-4 peak learning rate with 2,000 warmup steps, cosine decay to 6e-5, weight decay 0.1 and dropout 0.0. Karpathy's config spreads about 0.5M tokens per step across 8 A100s; as nanoGPT's README suggests for single-GPU training, WiggleGPT tunes the batch to its hardware, using 32 sequences (32,768 tokens) per step on one consumer GPU. The ~3.12 GPT-2 figure is from nanoGPT's [baselines table](https://github.com/karpathy/nanoGPT#baselines): OpenAI's released GPT-2 checkpoint evaluated on OpenWebText.
 
 **Key Result:** WiggleGPT achieved validation loss within **1.3%** of the GPT-2 baseline, demonstrating that oscillating activations are a viable drop-in replacement for standard deep learning primitives at scale.
+
+WiggleGPT reached this result with the native head-indexed rotation behaviour described below and no effective explicit positional encoding. [GPT-2 uses learned position embeddings](https://github.com/openai/gpt-2/blob/master/src/model.py), so the positional setups differ.
 
 ### Training Progression (124M)
 
@@ -83,7 +87,7 @@ Analysis of all 36,864 oscillating neurons confirmed the model actively utilizes
 
 - **95% of neurons retained active oscillation** (ω > 0.1)
 - Only 5% linearized (ω ≈ 0)
-- The 6x increase in frequency variance confirms the model learned diverse frequencies for different neurons
+- The 6x increase in frequency standard deviation confirms the model learned diverse frequencies for different neurons
 
 ---
 
@@ -107,9 +111,11 @@ Following pretraining, WiggleGPT 124M was fine-tuned on the SmolTalk2 dataset fo
 | 250 | 2.1191 | 2.1233 |
 | 5,000 | 1.6619 | 1.5266 |
 | 8,500 | 1.5143 | **1.3184** (best) |
-| 10,000 | — | 1.5888 |
+| 9,750 | 1.6527 | 1.5888 |
 
 **Best validation loss: 1.3184** at step 8,500 (38% reduction from initial).
+
+The run completed 10,000 iterations. Its released checkpoint was saved at the final evaluation, step 9,750, with validation loss 1.5888.
 
 ### Oscillation Parameter Stability
 
@@ -168,9 +174,11 @@ x → Linear → sin(ω·x + φ)·tanh(x) → output
 ### 2. Modern Transformer Features
 
 - **RMSNorm**: Faster than LayerNorm
-- **Rotary Position Embeddings (RoPE)**: Better length extrapolation
+- **Native RoPE path**: Rotates queries and keys per attention head, not by token position; the paired rotations cancel in attention apart from numerical rounding. The released model therefore has no effective explicit positional encoding; the causal mask remains active.
 - **Flash Attention**: Efficient attention via PyTorch 2.0+ CUDA kernels
 - **Weight Tying**: Input embeddings tied to output projection
+
+The native rotation path also requires at least 12 input tokens; shorter prompts need padding. The released checkpoints were trained with this behaviour, so keep the native implementation unchanged when loading them.
 
 ### 3. Drop-in Compatibility
 
@@ -187,7 +195,7 @@ x → Linear → sin(ω·x + φ)·tanh(x) → output
 ```
 GPT-2 Transformer (124M params)
 ├── Token Embeddings (weight-tied with output)
-├── Rotary Position Embeddings (RoPE)
+├── Native head-indexed rotation path (no effective explicit position encoding)
 └── Transformer Blocks (12 layers)
     ├── RMSNorm
     ├── Multi-Head Self-Attention (12 heads)
@@ -251,6 +259,8 @@ python sample_bio.py
 python chat.py
 ```
 
+The sampling command loads `out-wigglegpt-pure-124m/ckpt.pt`, produced by the pretraining command above. To use the released pretrained checkpoint instead, download `ckpt_pretrain.pt` from the [Hugging Face repository](https://huggingface.co/edeneldith/WiggleGPT) and place it at that path as `ckpt.pt`. Chat similarly needs the fine-tuned checkpoint at `out-wigglegpt-finetune-native/ckpt.pt`; obtain it by fine-tuning or by placing the released `ckpt_finetune.pt` there as `ckpt.pt`.
+
 ---
 
 ## 🚀 Usage
@@ -276,7 +286,7 @@ python finetune_native.py
 
 ```bash
 # Sample from pretrained model
-python sample_bio.py --start="Hello WiggleGPT"
+python sample_bio.py --start="Hello WiggleGPT, how are you doing today? :)"
 
 # Interactive chat with fine-tuned model
 python chat.py --temperature=0.5 --top_k=30
@@ -299,7 +309,7 @@ WiggleGPT/
 ├── config_finetune_native.py # Fine-tuning config (native)
 ├── config_finetune_smoltalk.py # Fine-tuning config (SmolTalk)
 ├── configurator.py           # Config parsing utilities
-├── LICENSE                   # MIT License
+├── LICENSE                   # GNU GPLv3
 ├── README.md                 # This file
 │
 ├── Analysis scripts/         # Checkpoint analysis & visualization
@@ -360,7 +370,7 @@ See [`Analysis scripts/Readme-Analysis-loss-scripts.md`](./Analysis%20scripts/Re
 
 ## 🔧 Configuration
 
-Key parameters in `config_gpt2_bio_3070.py`:
+Key parameters in `config_gpt2_bio_3070.py`, following Karpathy's nanoGPT GPT-2 (124M) reproduction recipe with the batch tuned for a single RTX 3070. When training moved to the RTX 5060 Ti, the config changed to `batch_size = 4` with `gradient_accumulation_steps = 8`, keeping the same effective batch of 32 sequences across the swap:
 
 ```python
 # Model architecture (GPT-2 124M)
@@ -384,7 +394,7 @@ use_bio_mlp = True                # Enable oscillating activations
 
 # Optimizations
 use_rmsnorm = True                # RMSNorm instead of LayerNorm
-use_rope = True                   # Rotary Position Embeddings
+use_rope = True                   # Native head-indexed rotation path
 compile = False                   # Disabled (Windows lacks Triton support)
 ```
 
@@ -548,8 +558,12 @@ See the [LICENSE](LICENSE) file for full terms.
 
 **12/11/2025 02:58AM** — Training finished! `step 600000: train loss 3.1749, val loss 3.1621`
 
-**07/11/2025 05:26AM** — Training resumed with new GPU (RTX 5060 Ti 16GB). Config changed to `batch_size=4, gradient_accumulation_steps=8`. Required PyTorch with CUDA 12.8 for sm_120 compatibility.
+**07/11/2025 05:26AM** — Update: training had resumed two days earlier on the new RTX 5060 Ti 16GB and reached step 354,000.
 > step 354000: train loss 3.3162, val loss 3.3482
+
+**05/11/2025 shortly after 00:45AM** — Training resumed from the step 240,000 checkpoint on the RTX 5060 Ti 16GB. Config changed to `batch_size=4, gradient_accumulation_steps=8`. Required PyTorch with CUDA 12.8 for sm_120 compatibility.
+
+**29/10/2025 around 14:00–15:00** — Shut down the RTX 3070 run after the step 240,000 checkpoint for the GPU upgrade. Less than 35 minutes of progress beyond the checkpoint was lost. The pause while waiting for and fitting the 5060 Ti, then getting training running again, was approximately 155 hours (6½ days).
 
 **28/10/2025 01:36AM** — GPU order cancelled by seller 😭 Money stuck in eBay refund system for 3-5 days. Continuing on RTX 3070.
 > step 176000: train loss 3.4597, val loss 3.4634
@@ -596,5 +610,5 @@ See the [LICENSE](LICENSE) file for full terms.
 
 <p align="center">
   <b>WiggleGPT</b><br>
-  Challenging a 56-year-old assumption, one wiggle at a time 🧠⚡
+  Challenging a 57-year-old assumption, one wiggle at a time 🧠⚡
 </p>
